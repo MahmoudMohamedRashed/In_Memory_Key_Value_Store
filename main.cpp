@@ -14,9 +14,9 @@
 using namespace std;
 
 int main()
+
 {
     constexpr uint16_t kPort = 8080;
-
     try {
         KvStore store;
         CommandParser parser(store);
