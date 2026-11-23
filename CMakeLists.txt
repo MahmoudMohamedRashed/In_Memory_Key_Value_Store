@@ -9,7 +9,8 @@ add_executable(In_Memory_Key_Value_Store main.cpp
     KV-Store/kvstore.h KV-Store/kvstore.cpp
     "Command Parser/commandparser.h" "Command Parser/commandparser.cpp"
     "Tcp Session/tcpsession.h" "Tcp Session/tcpsession.cpp"
-    TcpServer/tcpserver.h TcpServer/tcpserver.cpp)
+    TcpServer/tcpserver.h TcpServer/tcpserver.cpp
+    KvServer/kvserver.h KvServer/kvserver.cpp)
 
 add_definitions(-DASIO_STANDALONE)
 
