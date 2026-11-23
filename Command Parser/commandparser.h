@@ -2,20 +2,21 @@
 #define COMMANDPARSER_H
 
 #include "../KV-Store/kvstore.h"
+#include <memory>
+#include <string>
+#include <string_view>
 
 class CommandParser
 {
 public:
     explicit CommandParser(KvStore& store);
+    ~CommandParser();
 
     [[nodiscard]] std::string execute(std::string_view str);
 
 private:
-    static std::string toUpper(std::string_view str);
-    static void stripLineEnding(std::string_view& str);
-    static std::string_view nextToken(std::string_view& str);
-
-    KvStore& m_store;
+    class Impl;
+    std::unique_ptr<Impl> m_pimpl;
 };
 
 #endif // COMMANDPARSER_H
