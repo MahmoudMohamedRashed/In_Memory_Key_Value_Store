@@ -9,7 +9,10 @@ TcpSession::TcpSession(tcp::socket socket, CommandParser& parser)
     : m_socket{std::move(socket)}
     , m_parser{parser}
     , m_readBuffer{m_MAXBUFFERSIZE}
-{}
+{
+    asio::error_code ec;
+    m_socket.set_option(tcp::no_delay(true), ec);
+}
 
 void TcpSession::start()
 {
